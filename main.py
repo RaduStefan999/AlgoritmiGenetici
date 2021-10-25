@@ -1,6 +1,7 @@
 import numpy as np
 import sys
 import math
+import random
 
 
 class FunctionAnalyser:
@@ -85,6 +86,35 @@ class FunctionAnalyser:
 
         return self.eval(self, best_solution)
 
+    def random_neighbourhood(self, solution):
+        argument_index = random.randint(0, self.dimensions - 1)
+        bit_index = random.randint(0, self.data_size - 1)
+        solution[argument_index, bit_index] = not solution[argument_index, bit_index]
+
+    def simulated_annealing(self, iterations):
+        temperature = 3000
+
+        candidate_solution = np.random.choice(a=[False, True], size=(self.dimensions, self.data_size))
+        random_neighbour_solution = np.copy(candidate_solution)
+
+        for i in range(1, iterations + 1):
+            for j in range(1, self.data_size * 3):
+                self.random_neighbourhood(random_neighbour_solution)
+
+                evalc = self.eval(self, candidate_solution)
+                evaln = self.eval(self, random_neighbour_solution)
+
+                if evaln < evalc:
+                    candidate_solution = np.copy(random_neighbour_solution)
+                elif random.uniform(0, 1) < math.exp(-abs((evaln - evalc) / temperature)):
+                    candidate_solution = np.copy(random_neighbour_solution)
+
+            temperature = temperature * 0.9
+
+            print(i)
+
+        return self.eval(self, candidate_solution)
+
 
 def de_jong(analyser_obj, solution):
     result = 0
@@ -119,18 +149,15 @@ def michalewicz(analyser_obj, solution):
         i = i + 1
     return -result
 
-def simulated_annealing():
-    return
-
 
 if __name__ == '__main__':
-    analyser = FunctionAnalyser(0, 3.14, 5, 5, michalewicz)
+    analyser = FunctionAnalyser(-500, 500, 5, 5, schwefel)
 
     if len(sys.argv) > 1:
         if sys.argv[1] == "hill_climbing":
-            print(round(analyser.hill_climbing(100, "best_improvement"), 5))
+            print(round(analyser.hill_climbing(1, "best_improvement"), 5))
         elif sys.argv[1] == "simulated_annealing":
-            analyser.simulated_annealing()
+            print(round(analyser.simulated_annealing(1000), 5))
 
 
 
@@ -152,3 +179,19 @@ if __name__ == '__main__':
 # 1 1 1 0 0 1 - + 1
 # 0 1 1 0 0 0 - + 1 + 32
 # until t = MAX
+
+#t := 0
+#initialize the temperature T
+#select a current candidate solution (bitstring) vc at random
+#evaluate vc
+#repeat
+#    repeat
+#        select at random vn: a neighbor of vc
+#        if eval(vn) is better than eval(vc)
+#            then vc := vn
+#            else if random[0,1) < exp(-|eval(vn) - eval(vc)| / T)
+#                then vc := vn
+#    until (termination-condition)
+#    T := g(T; t)
+#    t := t + 1
+#until (halting-criterion)
