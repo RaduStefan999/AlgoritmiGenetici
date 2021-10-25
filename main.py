@@ -106,20 +106,29 @@ def rastrigin(analyser_obj, solution):
     result = 0
     for argument in solution:
         x = analyser_obj.to_number(argument)
-        result = x*x - 10*math.cos(2*math.pi*x)
+        result = result + x*x - 10*math.cos(2*math.pi*x)
     return 10 * analyser_obj.dimensions + result
 
+
+def michalewicz(analyser_obj, solution):
+    result = 0
+    i = 1
+    for argument in solution:
+        x = analyser_obj.to_number(argument)
+        result = result + math.sin(x) * pow((math.sin(i * x*x / math.pi)), 2*10)
+        i = i + 1
+    return -result
 
 def simulated_annealing():
     return
 
 
 if __name__ == '__main__':
-    analyser = FunctionAnalyser(-5.12, 5.12, 5, 2, rastrigin)
+    analyser = FunctionAnalyser(0, 3.14, 5, 5, michalewicz)
 
     if len(sys.argv) > 1:
         if sys.argv[1] == "hill_climbing":
-            print(round(analyser.hill_climbing(10, "best_improvement"), 5))
+            print(round(analyser.hill_climbing(100, "best_improvement"), 5))
         elif sys.argv[1] == "simulated_annealing":
             analyser.simulated_annealing()
 
