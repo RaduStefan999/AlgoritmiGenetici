@@ -4,11 +4,12 @@ import math
 
 
 class FunctionAnalyser:
-    def __init__(self, a, b, precision, dimensions):
+    def __init__(self, a, b, precision, dimensions, eval_function):
         self.a = a
         self.b = b
         self.precision = precision
         self.dimensions = dimensions
+        self.eval = eval_function
 
         number_size = (b - a) * pow(10, precision)
         data_size = int(math.floor(math.log(number_size, 2)) + 1)
@@ -26,13 +27,6 @@ class FunctionAnalyser:
         number = self.a + number * (self.b - self.a) / (pow(2, self.data_size))
         return number
 
-    def eval(self, solution):
-        result = 0
-        for argument in solution:
-            x = self.to_number(argument)
-            result = result + x*x
-        return result
-
     def first_improve(self, solution):
         duplicate = np.copy(solution)
 
@@ -41,7 +35,7 @@ class FunctionAnalyser:
             for bit in argument:
                 argument[index] = not argument[index]
 
-                if self.eval(solution) < self.eval(duplicate):
+                if self.eval(self, solution) < self.eval(self, duplicate):
                     return
 
                 argument[index] = not argument[index]
@@ -56,7 +50,7 @@ class FunctionAnalyser:
             for bit in argument:
                 argument[index] = not argument[index]
 
-                if self.eval(solution) < self.eval(best):
+                if self.eval(self, solution) < self.eval(self, best):
                     best = np.copy(solution)
 
                 argument[index] = not argument[index]
@@ -68,7 +62,7 @@ class FunctionAnalyser:
     def hill_climbing(self, iterations, improvement):
         best_solution = np.random.choice(a=[False, True], size=(self.dimensions, self.data_size))
 
-        for i in range(1, iterations):
+        for i in range(1, iterations + 1):
             local = False
             local_solution = np.random.choice(a=[False, True], size=(self.dimensions, self.data_size))
             improved_solution = np.copy(local_solution)
@@ -79,17 +73,41 @@ class FunctionAnalyser:
                 elif improvement == "best_improvement":
                     self.best_improve(improved_solution)
 
-                if self.eval(improved_solution) < self.eval(local_solution):
+                if self.eval(self, improved_solution) < self.eval(self, local_solution):
                     local_solution = np.copy(improved_solution)
                 else:
                     local = True
 
-            if self.eval(local_solution) < self.eval(best_solution):
+            if self.eval(self, local_solution) < self.eval(self, best_solution):
                 best_solution = np.copy(local_solution)
 
             print(i)
 
-        return self.eval(best_solution)
+        return self.eval(self, best_solution)
+
+
+def de_jong(analyser_obj, solution):
+    result = 0
+    for argument in solution:
+        x = analyser_obj.to_number(argument)
+        result = result + x*x
+    return result
+
+
+def schwefel(analyser_obj, solution):
+    result = 0
+    for argument in solution:
+        x = analyser_obj.to_number(argument)
+        result = result + (-x)*math.sin(math.sqrt(abs(x)))
+    return result
+
+
+def rastrigin(analyser_obj, solution):
+    result = 0
+    for argument in solution:
+        x = analyser_obj.to_number(argument)
+        result = x*x - 10*math.cos(2*math.pi*x)
+    return 10 * analyser_obj.dimensions + result
 
 
 def simulated_annealing():
@@ -97,11 +115,11 @@ def simulated_annealing():
 
 
 if __name__ == '__main__':
-    analyser = FunctionAnalyser(-5.12, 5.12, 5, 5)
+    analyser = FunctionAnalyser(-5.12, 5.12, 5, 2, rastrigin)
 
     if len(sys.argv) > 1:
         if sys.argv[1] == "hill_climbing":
-            print(analyser.hill_climbing(10, "best_improvement"))
+            print(round(analyser.hill_climbing(10, "best_improvement"), 5))
         elif sys.argv[1] == "simulated_annealing":
             analyser.simulated_annealing()
 
