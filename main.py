@@ -92,13 +92,13 @@ class FunctionAnalyser:
         solution[argument_index, bit_index] = not solution[argument_index, bit_index]
 
     def simulated_annealing(self, iterations):
-        temperature = 3000
+        temperature = 2000
 
         candidate_solution = np.random.choice(a=[False, True], size=(self.dimensions, self.data_size))
-        random_neighbour_solution = np.copy(candidate_solution)
 
         for i in range(1, iterations + 1):
             for j in range(1, self.data_size * 3):
+                random_neighbour_solution = np.copy(candidate_solution)
                 self.random_neighbourhood(random_neighbour_solution)
 
                 evalc = self.eval(self, candidate_solution)
@@ -151,13 +151,13 @@ def michalewicz(analyser_obj, solution):
 
 
 if __name__ == '__main__':
-    analyser = FunctionAnalyser(-500, 500, 5, 5, schwefel)
+    analyser = FunctionAnalyser(0, math.pi, 5, 30, michalewicz)
 
     if len(sys.argv) > 1:
         if sys.argv[1] == "hill_climbing":
             print(round(analyser.hill_climbing(1, "best_improvement"), 5))
         elif sys.argv[1] == "simulated_annealing":
-            print(round(analyser.simulated_annealing(1000), 5))
+            print(analyser.simulated_annealing(1000))
 
 
 
