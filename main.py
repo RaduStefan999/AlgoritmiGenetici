@@ -2,6 +2,7 @@ import numpy as np
 import sys
 import math
 import random
+import time
 
 
 class FunctionAnalyser:
@@ -151,13 +152,19 @@ def michalewicz(analyser_obj, solution):
 
 
 if __name__ == '__main__':
-    analyser = FunctionAnalyser(0, math.pi, 5, 30, michalewicz)
+    begin = time.time()
+
+    analyser = FunctionAnalyser(-5.12, 5.12, 5, 5, rastrigin)
 
     if len(sys.argv) > 1:
         if sys.argv[1] == "hill_climbing":
-            print(round(analyser.hill_climbing(1, "best_improvement"), 5))
+            print(analyser.hill_climbing(1000, "best_improvement"))
         elif sys.argv[1] == "simulated_annealing":
             print(analyser.simulated_annealing(1000))
+
+    end = time.time()
+
+    print(f"Timpul total pentru rularea programului este {end - begin}")
 
 
 
