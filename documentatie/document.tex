@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 
 \usepackage{graphicx}
 \usepackage{hyperref}
@@ -17,8 +17,8 @@
 The problem of exploring the values of functions and finding the global minimum of said function for a specified domain has useful aplications, yet it is dificult to solve with a deterministic algorithm.
 That is because some functions have a very steep path to the minimum, like in the example below.
 
-\begin{figure}[!h]%means place figure here, don't float it around, if possible
-  \centering %inside a figure, centers the content
+\begin{figure}[!h]
+  \centering
 \begin{tikzpicture}
   \begin{axis}[
       xlabel=x,
@@ -68,60 +68,49 @@ $$random.uniform(0, 1) < math.exp(-abs((evaln - evalc) / temperature))$$
 This algorithm makes use of the hot iron concept. At the begining the temperature  is high and the chance to choose a worse solution is high but it decreeses over each iteration based on this formula:
 \newline
 $$temperature = temperature * 0.9$$
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
+
 
 \section{Experiment}
 
 For this experiment, a python program will analyse theese functions on 5, 10 and 30 dimensions with $10^{-5}$ precissionn. Each test is run 30 times to ensure consistancy
 
-De Jong's Function
-$$ f(x) = \sum_{i=1}^n \left[ x_i^2 \right],
- x_i \in \left[ -5.12, 5.15 \right]$$
-
 \begin{figure}[!h]
-  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{De_Jong_function}
-  \caption{De Jong's Function.}
+  \centering
+  $$ f(x) = \sum_{i=1}^n \left[ x_i^2 \right],
+   x_i \in \left[ -5.12, 5.15 \right]$$
+
+  \includegraphics[width=100mm,scale=0.5]{De_Jong_function}
+  \caption{Image De Jong's Function.\protect\footnotemark}
 \end{figure}
 
-Schwefel's Function
-$$ f(x) = \sum_{i=1}^n \left[-x_i \cdot sin(sqrt(|x_i|)) \right],
- x_i \in \left[ -500, 500 \right]$$
-
 \begin{figure}[!h]
-  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Schwefel_fucntion}
-  \caption{ Schwefel's Function.}
+  \centering
+  $$ f(x) = \sum_{i=1}^n \left[-x_i \cdot sin(sqrt(|x_i|)) \right],
+   x_i \in \left[ -500, 500 \right]$$
+
+  \includegraphics[width=100mm,scale=0.5]{Schwefel_fucntion}
+  \caption{Image Schwefel's Function. \protect\footnotemark}
 \end{figure}
 
-Rastrigin's Function
-$$ f(x) = A \cdot n + \sum_{i=1}^n \left[ x_i^2 - A \cdot cos(2 \pi x_i) \right],
-A = 10, x_i \in \left[ -5.12, 5.15 \right]$$
-
 \begin{figure}[!h]
-  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Rastrigin_function}
-  \caption{Rastrigin's Function.}
+  \centering
+  $$ f(x) = A \cdot n + \sum_{i=1}^n \left[ x_i^2 - A \cdot cos(2 \pi x_i) \right],
+  A = 10, x_i \in \left[ -5.12, 5.15 \right]$$
+
+  \includegraphics[width=100mm,scale=0.5]{Rastrigin_function}
+  \caption{Image Rastrigin's Function. \protect\footnotemark}
 \end{figure}
 
-Michalewicz's Function
-$$ f(x) = -\sum_{i=1}^n \left[sin(x_i) \cdot \left( sin\left( \frac{i \cdot x_i^2}{\pi}  \right) \right)^{2 \cdot m} \right] ,
- x_i \in \left[ 0, \pi \right] ,  m = 10$$
-
 \begin{figure}[!h]
-  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Michalewicz_functions}
-  \caption{Michalewicz's Function.}
-\end{figure}
--
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
+  \centering
+  $$ f(x) = -\sum_{i=1}^n \left[sin(x_i) \cdot \left( sin\left( \frac{i \cdot x_i^2}{\pi}  \right) \right)^{2 \cdot m} \right] ,
+  x_i \in \left[ 0, \pi \right] ,  m = 10$$
 
+  \includegraphics[width=100mm,scale=0.5]{Michalewicz_functions}
+  \caption{Michalewicz's Function. \protect\footnotemark}
+\end{figure}
+
+\pagebreak
 
 \section{Results}
 
