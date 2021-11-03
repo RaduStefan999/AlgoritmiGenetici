@@ -4,6 +4,8 @@
 \usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{multirow}
+\usepackage{tabulary}
 
 
 \author{Mihalache Radu-Stefan}
@@ -114,70 +116,207 @@ For this experiment, a python program will analyse theese functions on 5, 10 and
 
 \section{Results}
 
-\begin{figure}[!h]
-\begin{tabular}{||c|||l|l||l||l||}
-  \hline
-  function & avg & min & max & time\\ \hline \hline
-DeJong 1 5D - Hill Climbing first & 0 & 0 & 0 & 7 \\ \hline
-DeJong 1 5D -Hill Climbing  best & 0 & 0 & 0 & 14 \\ \hline
-DeJong 1 5D - Simulated Annealing  & 0 & 0 & 0 & 2 \\ \hline
+Hill Climbing first 5D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &  \\
+\hline
+ Schwefel & -1939 & -1992 & -1853 & & &  \\
+\hline
+ Rastrigin & 2.59497 & 1.88367 & 3.69702 & & &  \\
+\hline
+ Michalewicz & -4.44109 & -4.62793 & -3.97123 & & &  \\
+\hline
+\end{tabulary}
+\newline
+\newline
+Hill Climbing best 5D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &  \\
+\hline
+ Schwefel & -1967 & -2094 & -1893 & & &  \\
+\hline
+ Rastrigin & 2.23592 & 1.579144 & 2.98702 & & &  \\
+\hline
+ Michalewicz & -4.37306 &  -4.65685 & -4.02012 & & &  \\
+\hline
+\end{tabulary}
+\newline
+\newline
+Simulated Annealing 5D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &  \\
+\hline
+ Schwefel & -1825 & -1963 & -1776  & & &  \\
+\hline
+ Rastrigin & 2.23086 & 1.71005 & 3.102193 & & &  \\
+\hline
+ Michalewicz & -4.28916 & -4.6328 & -3.26917 & & &  \\
+\hline
+\end{tabulary}
+\newline
+\newline
+Hill Climbing first 10D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &  \\
+\hline
+ Schwefel & -3652 & -3872 & -3492 & & &  \\
+\hline
+ Rastrigin & 7.18790 & 3.93217 & 15.19234 & & &  \\
+\hline
+ Michalewicz & -8.20880 & -9.01029 & -6.89132 & & &  \\
+\hline
+\end{tabulary}
+\newline
+\newline
+Hill Climbing best 10D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &  \\
+\hline
+ Schwefel & -3623 & -3772 & -3506 & & &  \\
+\hline
+ Rastrigin & 8.18790 & 3.67834 & 14.0925 & & &  \\
+\hline
+ Michalewicz & -9.09037 &  -9.24031 & -8.25910 & & &  \\
+\hline
+\end{tabulary}
+\newline
+\newline
+Simulated Annealing 10D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &  \\
+\hline
+ Schwefel & -3642 & -3905 & -3246  & &  \\
+\hline
+ Rastrigin & 9.18790 & 3.19593 & 15.2394 & & &  \\
+\hline
+ Michalewicz & -8.70903 & -9.22690 &  -6.15737 & & &  \\
+\hline
+\end{tabulary}
+\newline
+\newline
+Hill Climbing first 30D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &  \\
+\hline
+ Schwefel & -9453 & -9923 & -9369 & & &  \\
+\hline
+ Rastrigin & 23.72184 & 17.12235 & 38.63187 & & &  \\
+\hline
+ Michalewicz & -20.79776 & -22.61219 & -17.31592 & & &  \\
+\hline
+\end{tabulary}
+\newline
+\newline
+Hill Climbing best 30D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &  \\
+\hline
+ Schwefel & -10153 & -10453 & -10063 & & &  \\
+\hline
+ Rastrigin & 22.43780 & 16.97201 & 37.29053 & & &  \\
+\hline
+ Michalewicz & -24.09166 & -25.14376 & -22.21472 & & &  \\
+\hline
+\end{tabulary}
+\newline
+\newline
+Simulated Annealing 30D
+\newline
+\newline
+\begin{tabulary}{1\textwidth}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Functions} & \multicolumn{3}{c|}{Solutions} & %
+    \multicolumn{3}{c|}{Time} \\
+\cline{2-7}
+ & Averege & Minimum &  Maximum & Minimum & Averege & Maximum \\
+\hline
+ DeJong 1 & 0 & 0 & 0 & & &   \\
+\hline
+ Schwefel & -9746  & -11279 & -9365  & & &  \\
+\hline
+ Rastrigin & 25.18790 & 17.67834 & 38.44140 & & &  \\
+\hline
+ Michalewicz & -23.66259 & -24.29173 & -21.53991 & & &  \\
+\hline
+\end{tabulary}
 
-DeJong 1 10D - Hill Climbing first & 0 & 0 & 0 & 56 \\ \hline
-DeJong 1 10D - Hill Climbing best & 0 & 0 & 0 & 108 \\ \hline
-DeJong 1 10D - Simulated Annealing & 0 & 0 & 0 & 4 \\ \hline
-
-DeJong 1 30D - Hill Climbing first & 0 & 0 & 0 & 973 \\ \hline
-DeJong 1 30D - Hill Climbing best & 0 & 0 & 0 & 1485 \\ \hline
-DeJong 1 30D - Simulated Annealing & 0 & 0 & 0 & 10 \\ \hline
-
-Schwefel 5D - Hill Climbing first & -1939 & -1992 & -1853 & 11 \\ \hline
-Schwefel 5D -Hill Climbing  best & -1967 & -2094 & -1893 & 10 \\ \hline
-Schwefel 5D - Simulated Annealing & -1825 & -1963 & -1776  & 3 \\ \hline
-
-Schwefel 10D - Hill Climbing first & -3652 & -3872 & -3492 & 131 \\ \hline
-Schwefel 10D -Hill Climbing  best & -3623 & -3772 & -3506 & 83 \\ \hline
-Schwefel 10D - Simulated Annealing & -3642 & -3905 & -3246  & 7 \\ \hline
-
-Schwefel 30D - Hill Climbing first & -9453 & -9923 & -9369 & 1525 \\ \hline
-Schwefel 30D -Hill Climbing  best & -10153 & -10453 & -10063 & 1511 \\ \hline
-Schwefel 30D - Simulated Annealing & -9746  & -11279 & -9365  & 20 \\ \hline
-
-Rastrigin 5D - Hill Climbing first & 2.59497 & 1.88367 & 3.69702 & 13 \\ \hline
-Rastrigin 5D -Hill Climbing  best & 2.23592 & 1.579144 & 2.98702 & 14 \\ \hline
-Rastrigin 5D - Simulated Annealing & 2.23086 & 1.71005 & 3.102193 & 3 \\ \hline
-
-Rastrigin 10D - Hill Climbing first & 7.18790 & 3.93217 & 15.19234 & 161 \\ \hline
-Rastrigin 10D -Hill Climbing  best& 8.18790 & 3.67834 & 14.0925 & 121 \\ \hline
-Rastrigin 10D - Simulated Annealing & 9.18790 & 3.19593 & 15.2394 & 7 \\ \hline
-
-Rastrigin  30D - Hill Climbing first & 23.72184 & 17.12235 & 38.63187 & 1617 \\ \hline
-Rastrigin  30D -Hill Climbing  best & 22.43780 & 16.97201 & 37.29053 & 1392 \\ \hline
-Rastrigin  30D - Simulated Annealing & 25.18790 & 17.67834 & 38.44140 & 21 \\ \hline
-
-Michalewicz 5D - Hill Climbing first & -4.44109 & -4.62793 & -3.97123 & 11 \\ \hline
-Michalewicz 5D -Hill Climbing  best & -4.37306 &  -4.65685 & -4.02012 & 10 \\ \hline
-Michalewicz 5D - Simulated Annealing & -4.28916 & -4.6328 & -3.26917 & 2 \\ \hline
-
-Michalewicz 10D - Hill Climbing first & -8.20880 & -9.01029 & -6.89132 & 107 \\ \hline
-Michalewicz 10D -Hill Climbing  best & -9.09037 &  -9.24031 & -8.25910 & 79 \\ \hline
-Michalewicz 10D - Simulated Annealing & -8.70903 & -9.22690 &  -6.15737 & 6 \\ \hline
-
-Michalewicz 30D - Hill Climbing first & -20.79776 & -22.61219 & -17.31592 & 560 \\ \hline
-Michalewicz 30D -Hill Climbing  best & -24.09166 & -25.14376 & -22.21472 & 423 \\ \hline
-Michalewicz 30D - Simulated Annealing & -23.66259 & -24.29173 & -21.53991 & 15 \\ \hline
-
-  
-\end{tabular}
-\end{figure}
-
-
-
-\subsection{Interpretation}
-
- Hill Climbing with the first and best neighbour choice give different resaults and times for different functions. Yet in all of them the time to solve large inputs is high in the python implementation that was used.
-However, the simulated annealing approach gives marginally worse resaults and significanly better time. 
 
 \section{Conclusions}
+In my resaults, Hill Climbing best improovement usualy gives slightly better resaults than first improovement while neither algorithm is clearly better in terms of time.
+\newline
+As expected, with larger input, the time increses significantly, and the difference between the minimum and the maximum is higher, which could simbolize a lower precission.
+\newline
+The resaults could be improoved by using a different random function and the time could be improoved by implmenting the program in C++ rather than Python.
+\newline
+In my implementation the Simulated Annealing algorithm, gives worse resaults than Hill Climbing with higher difference between the minimum and maximum, but the time is more than 10 times better, and the increese in input size doesn't increese the time at the same rate as the Hill Climbing. 
+\newline
+The algorithm could be improoved by using a better temperature function, and perhaps finding a way to make it more efficient at low temperatures.
+\newline
+
 As demonstrated in the experiment, nondeterministic algorithms can be used to find the global minimum of functions.
 
 
