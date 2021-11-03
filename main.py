@@ -154,11 +154,11 @@ def michalewicz(analyser_obj, solution):
 if __name__ == '__main__':
     begin = time.time()
 
-    analyser = FunctionAnalyser(-5.12, 5.12, 5, 5, rastrigin)
+    analyser = FunctionAnalyser(-5.12, 5.12, 5, 30, rastrigin)
 
     if len(sys.argv) > 1:
         if sys.argv[1] == "hill_climbing":
-            print(analyser.hill_climbing(1000, "best_improvement"))
+            print(analyser.hill_climbing(5, "best_improvement"))
         elif sys.argv[1] == "simulated_annealing":
             print(analyser.simulated_annealing(1000))
 
