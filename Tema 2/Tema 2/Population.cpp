@@ -77,9 +77,9 @@ void Population::SelectNewIndividuals()
 			}
 		}
 
-		if (individuals[populationSize].second.cumulatedProb < r)
+		if (individuals[populationSize - 1].second.cumulatedProb < r)
 		{
-			selectedIndividuals.push_back(individuals[populationSize]);
+			selectedIndividuals.push_back(individuals[populationSize - 1]);
 		}
 	}
 

@@ -30,7 +30,7 @@ public:
     IntegerRandomGenerator() : gen(rd()) {};
     T RandomBetween(T a, T b) 
     {
-       std::uniform_int_distribution<T> dis;
+       std::uniform_int_distribution<T> dis(a, b);
        return dis(gen);
     }
 };
@@ -45,7 +45,7 @@ public:
     RealRandomGenerator() : gen(rd()) {};
     T RandomBetween(T a, T b)
     {
-        std::uniform_real_distribution<T> dis;
+        std::uniform_real_distribution<T> dis(a, b);
         return dis(gen);
     }
 };

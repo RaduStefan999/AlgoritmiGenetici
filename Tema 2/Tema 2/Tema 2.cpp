@@ -7,7 +7,7 @@ int main()
 
     Population population(&dejong, 100, 5);
 
-    for (unsigned int i = 0; i < 100; i++)
+    for (unsigned int i = 0; i < 1000; i++)
     {
         population.Evolve();
     }
