@@ -23,7 +23,7 @@ Bitstring::Bitstring(BitstringDimesnions* dimensions)
 
 long double Bitstring::GetNumber(unsigned int axis)
 {
-	CHECK(axis < dimensions->axes, 0, "Invalid axis");
+	VALIDATE(axis < dimensions->axes, 0, "Invalid axis");
 
 	long double number = 0;
 
@@ -34,7 +34,7 @@ long double Bitstring::GetNumber(unsigned int axis)
 
 unsigned long long Bitstring::GetBitstringNumber(unsigned int axis)
 {
-	CHECK(axis < dimensions->axes, 0, "Invalid axis");
+	VALIDATE(axis < dimensions->axes, 0, "Invalid axis");
 
 	unsigned long long bitstringNumber = 0;
 	unsigned long long power = 1;
