@@ -1,0 +1,5 @@
+﻿  Population.cpp
+D:\Work\AlgoritmiGenetici\Tema 2\Tema 2\Population.cpp(207,17): warning C4552: '-': result of expression not used
+D:\Work\AlgoritmiGenetici\Tema 2\Tema 2\Population.cpp(212,17): warning C4552: '+': result of expression not used
+D:\Work\AlgoritmiGenetici\Tema 2\Tema 2\Population.cpp(246,99): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
+  Tema 2.vcxproj -> D:\Work\AlgoritmiGenetici\Tema 2\x64\Debug\Tema 2.exe

@@ -142,6 +142,7 @@
     <ClCompile Include="Bitstring.cpp" />
     <ClCompile Include="Chromosome.cpp" />
     <ClCompile Include="Evaluation.cpp" />
+    <ClCompile Include="MyMath.cpp" />
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="RandomGenerator.cpp" />
     <ClCompile Include="Tema 2.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Chromosome.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Evaluation.h" />
+    <ClInclude Include="MyMath.h" />
     <ClInclude Include="Population.h" />
     <ClInclude Include="RandomGenerator.h" />
   </ItemGroup>

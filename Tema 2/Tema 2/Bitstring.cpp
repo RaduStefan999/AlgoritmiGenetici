@@ -8,17 +8,14 @@ BitstringDimesnions::BitstringDimesnions(long double a, long double b, unsigned 
 	this->N = (unsigned int)(log2((b - a) * pow(10, d))) + 1;
 	this->axes = axes;
 
-	this->twoToN = 1;
-	for (unsigned int i = 0; i < this->N; i++)
-	{
-		this->twoToN = this->twoToN * 2;
-	}
+	this->bitsLen = this->N * this->axes;
+
+	this->twoToN = 1ull << N;
 }
 
-Bitstring::Bitstring(BitstringDimesnions* dimensions)
+Bitstring::Bitstring(BitstringDimesnions* dimensions) : bits{}
 {
 	this->dimensions = dimensions;
-	this->bits.resize(dimensions->N * dimensions->axes);
 }
 
 long double Bitstring::GetNumber(unsigned int axis)
@@ -41,7 +38,7 @@ unsigned long long Bitstring::GetBitstringNumber(unsigned int axis)
 
 	for (unsigned int i = axis * dimensions->N; i < (axis + 1) * dimensions->N; i++)
 	{
-		bitstringNumber = this->bits[i] * power;
+		bitstringNumber = bitstringNumber + this->bits[i] * power;
 		power = power * 2;
 	}
 

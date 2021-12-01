@@ -8,7 +8,7 @@ class Chromosome : public Bitstring
 
 public:
 	Chromosome(BitstringDimesnions* dimensions, IntegerRandomGenerator<unsigned int>* integerRandomGenerator) : 
-		Bitstring(dimensions), integerRandomGenerator(integerRandomGenerator) {};
+		Bitstring(dimensions), integerRandomGenerator(integerRandomGenerator) {}
 
 	void Mutate();
 	friend void CrossOver(Chromosome& a, Chromosome& b);

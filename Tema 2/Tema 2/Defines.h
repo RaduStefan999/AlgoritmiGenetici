@@ -16,4 +16,12 @@
 	} \
 }
 
+#define VALIDATE_RET(condition, msg) { \
+	if (!(condition)) { \
+		printf(msg); \
+		printf("\n"); \
+		return; \
+	} \
+}
+
 #define INT_TYPE (std::is_same<T, int>::value || std::is_same<T, unsigned int>::value || std::is_same<T, unsigned long long>::value)

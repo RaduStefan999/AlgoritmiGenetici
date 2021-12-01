@@ -18,6 +18,8 @@ struct ChromosomeStats
 class Population
 {
 	typedef std::pair<Chromosome, ChromosomeStats> Individual;
+
+	//std::array of fixed sizes will drasticly improove efficiensy
 	std::vector<Individual> individuals;
 	std::vector<Individual> eliteIndividuals;
 
@@ -35,6 +37,13 @@ class Population
 
 	long double totalFitness;
 
+	long double minValue;
+	long double maxValue;
+
+	bool decreaseGeneticDiversity;
+
+	void CalculateMinMax();
+
 	void FortuneWheelEval();
 	void EnsureElitism();
 	void SelectNewIndividuals();
@@ -42,7 +51,8 @@ class Population
 	void CrossOverIndividuals();
 
 public:
-	Population(Evaluator* evaluator, unsigned int populationSize, unsigned int nrOfEliteIndividuals);
+	Population(Evaluator* evaluator, unsigned int populationSize, unsigned int nrOfEliteIndividuals, bool decreaseGeneticDiversity);
 	void Evolve();
+	long double GetBest();
 };
 
