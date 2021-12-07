@@ -50,8 +50,32 @@ long double MichalewiczEvaluator::Evaluate(Bitstring* solution)
 	for (unsigned int i = 0; i < dimesnions.axes; i++)
 	{
 		number = solution->GetNumber(i);
-		result += sin(number) * pow(sin((i * number*number) / MyMath::pi), 2*dimesnions.axes);
+		result += sin(number) * pow(sin(((i + 1) * number*number) / MyMath::pi), 2*dimesnions.axes);
 	}
 	
 	return -result;
+}
+
+void DeJongEvaluator::GetTitle(char* str)
+{
+	std::string name = ("DeJong_" + std::to_string(dimesnions.axes)).c_str();
+	memcpy(str, name.c_str(), name.size() + 1);
+}
+
+void SchwefelEvaluator::GetTitle(char* str)
+{
+	std::string name = ("Schwefel_" + std::to_string(dimesnions.axes)).c_str();
+	memcpy(str, name.c_str(), name.size() + 1);
+}
+
+void RastriginEvaluator::GetTitle(char* str)
+{
+	std::string name = ("Rastrigin_" + std::to_string(dimesnions.axes)).c_str();
+	memcpy(str, name.c_str(), name.size() + 1);
+}
+
+void MichalewiczEvaluator::GetTitle(char* str)
+{
+	std::string name = ("Michalewicz_" + std::to_string(dimesnions.axes)).c_str();
+	memcpy(str, name.c_str(), name.size() + 1);
 }

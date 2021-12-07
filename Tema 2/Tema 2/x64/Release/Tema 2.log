@@ -1,7 +1,8 @@
-﻿  Tema 2.cpp
+﻿cl : command line warning D9002: ignoring unknown option '/O3'
+  Tema 2.cpp
   Generating code
-  1 of 214 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+  2 of 384 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Tema 2.vcxproj -> D:\Work\AlgoritmiGenetici\Tema 2\x64\Release\Tema 2.exe

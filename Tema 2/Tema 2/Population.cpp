@@ -231,6 +231,9 @@ void Population::MutateIndividuals()
 	for (auto& it : individuals)
 	{
 		it.first.Mutate();
+		it.first.Mutate();
+		it.first.Mutate();
+		it.first.Mutate();
 	}
 }
 
