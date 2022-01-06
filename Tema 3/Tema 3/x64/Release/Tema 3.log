@@ -1,0 +1,12 @@
+﻿  Bitstring.cpp
+  Evaluation.cpp
+  HeuristicSolver.cpp
+  MyMath.cpp
+  RandomGenerator.cpp
+  Solution.cpp
+  Tema 3.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 369 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Tema 3.vcxproj -> E:\Radu\work\master\Tema 3\x64\Release\Tema 3.exe
